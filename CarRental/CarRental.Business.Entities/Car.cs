@@ -9,7 +9,7 @@ using System.Threading.Tasks;
 namespace CarRental.Business.Entities
 {
     [DataContract]
-    public class Car:EntitesBase
+    public class Car:EntityBase
     {
         [DataMember]
         public int CarID { get; set; }

@@ -8,7 +8,7 @@ using System.Threading.Tasks;
 namespace Core.Common.Cores
 {
     [DataContract]
-    public class EntitesBase : IExtensibleDataObject
+    public class EntityBase : IExtensibleDataObject
     {
         public ExtensionDataObject ExtensionData { get; set; }
       
