@@ -13,7 +13,7 @@ using System.Threading.Tasks;
 
 namespace Core.Common.Cores
 {
-    public class ObjectBase : INotifyPropertyChanged, IExtensibleDataObject
+    public class ObjectBase : INotifyPropertyChanged
     {
         private event PropertyChangedEventHandler _PropertyChanged;
         List<PropertyChangedEventHandler> PropertyChangedSubcribers = new List<PropertyChangedEventHandler>();
