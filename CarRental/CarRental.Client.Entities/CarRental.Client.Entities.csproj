@@ -46,6 +46,8 @@
   <ItemGroup>
     <Compile Include="Car.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
+    <Compile Include="Rental.cs" />
+    <Compile Include="Reservation.cs" />
   </ItemGroup>
   <ItemGroup>
     <None Include="App.config" />
