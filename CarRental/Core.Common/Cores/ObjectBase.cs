@@ -26,7 +26,7 @@ namespace Core.Common.Cores
                     _PropertyChanged += value;
                     PropertyChangedSubcribers.Add(value);
                 }
-            }   
+            }
 
             remove
             {
@@ -60,48 +60,91 @@ namespace Core.Common.Cores
             set { isDirty = value; }
         }
 
-        protected List<ObjectBase> GetDirtyObjects()
+        protected void WalkObjectGraph(Func<ObjectBase, bool> snippetForObject, Action<IList> snippetForCollection, params string[] exemptProperties)
         {
-            List<ObjectBase> DirtyList = new List<ObjectBase>();
             List<ObjectBase> VisitedList = new List<ObjectBase>();
             Action<ObjectBase> walk = null;
+            List<string> Exemptions = new List<string>();
+            if (exemptProperties != null)
+                Exemptions = exemptProperties.ToList();
             walk = (o) =>
             {
-                if (o!=null && !VisitedList.Contains(o))
+                if (o != null && !VisitedList.Contains(o))
                 {
                     VisitedList.Add(o);
-                    if (o.IsDirty)
-                        DirtyList.Add(o);
-                    bool isExit = false;
+                    bool isExit = snippetForObject.Invoke(o);
                     if (!isExit)
                     {
                         PropertyInfo[] properties = o.GetBrowsableProperties();
                         foreach (PropertyInfo prop in properties)
                         {
-                            if (prop.PropertyType.IsSubclassOf(typeof(ObjectBase)))
+                            if (!Exemptions.Contains(prop.Name))
                             {
-                                ObjectBase obj = (ObjectBase)prop.GetValue(o, null);
-                                walk(obj);
-                            }
-                            else
-                            {
-                                IList collection = prop.GetValue(o, null) as IList;
-                                if (collection!=null)
+                                if (prop.PropertyType.IsSubclassOf(typeof(ObjectBase)))
                                 {
-
+                                    ObjectBase obj = (ObjectBase)prop.GetValue(o, null);
+                                    walk(obj);
                                 }
-                                foreach(object item in collection)
+                                else
                                 {
-                                    if (item is ObjectBase)
-                                        walk((ObjectBase)item);
+                                    IList collection = prop.GetValue(o, null) as IList;
+                                    if (collection != null)
+                                    {
+                                        snippetForCollection.Invoke(collection);
+                                        foreach (object item in collection)
+                                        {
+                                            if (item is ObjectBase)
+                                                walk((ObjectBase)item);
+                                        }
+                                    }
+
                                 }
                             }
                         }
                     }
                 }
             };
-            walk(this);
-            return DirtyList;
+        }
+
+        public List<ObjectBase> GetDirtyObjects()
+        {
+            List<ObjectBase> DirtyObjects = new List<ObjectBase>();
+            WalkObjectGraph(
+                o =>
+                {
+                    if (o.IsDirty)
+                        DirtyObjects.Add(o);
+                    return false;
+                }, coll => { });
+            return DirtyObjects;
+        }
+
+        public void CleanAll()
+        {
+            WalkObjectGraph(
+                o =>
+                {
+                    if (o.IsDirty)
+                        o.IsDirty = false;
+                    return false;
+                }, coll => { });
+        }
+
+        public bool isAnythingDirty()
+        {
+            bool isDirty = false;
+            WalkObjectGraph(
+                o =>
+                {
+                    if (o.IsDirty)
+                    {
+                        IsDirty = true;
+                        return true;
+                    }
+                    else
+                        return false;
+                }, coll => { });
+            return isDirty;
         }
     }
 }
