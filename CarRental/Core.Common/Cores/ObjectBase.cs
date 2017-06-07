@@ -5,23 +5,51 @@ using System.Collections.Generic;
 using System.Linq;
 using System.Reflection;
 using Core.Common.Contract;
+using FluentValidation;
+using FluentValidation.Results;
+using System.Linq.Expressions;
+using Core.Common.Utils;
+using System.Runtime.Serialization;
+using System.ComponentModel;
+using System.Text;
 
 namespace Core.Common.Cores
 {
-    public class ObjectBase : ObjectNotification, IDirtyCapable
+    public class ObjectBase : ObjectNotification, IDirtyCapable, IExtensibleDataObject, IDataErrorInfo
     {
+        public ObjectBase()
+        {
+            _Validator = GetValidator();
+            Validate();
+        }
+        protected IValidator _Validator;
+        protected IEnumerable<ValidationFailure> _ValidationErrors;
+        protected override void OnPropertyChanged(string propertyName)
+        {
+            OnPropertyChanged(propertyName, true);
+        }
+        protected void OnPropertyChanged<T>(Expression<Func<T>> propertyExpression, bool makeDirty)
+        {
+            string propertyName = PropertySupport.ExtractPropertyName(propertyExpression);
+            OnPropertyChanged(propertyName, makeDirty);
+        }
         protected virtual void OnPropertyChanged(string PropertyName, bool makeDirty)
         {
             OnPropertyChanged(PropertyName);
             if (makeDirty)
                 isDirty = true;
+            Validate();
         }
         private bool isDirty;
         [NotNavigable]
-        public bool IsDirty
+        public virtual bool IsDirty
         {
             get { return isDirty; }
-            set { isDirty = value; }
+            protected set
+            {
+                isDirty = value;
+                OnPropertyChanged(() => IsDirty, false);
+            }
         }
 
         protected void WalkObjectGraph(Func<ObjectBase, bool> snippetForObject, Action<IList> snippetForCollection, params string[] exemptProperties)
@@ -70,18 +98,7 @@ namespace Core.Common.Cores
             walk(this);
         }
 
-        public List<ObjectBase> GetDirtyObjects()
-        {
-            List<ObjectBase> DirtyObjects = new List<ObjectBase>();
-            WalkObjectGraph(
-                o =>
-                {
-                    if (o.IsDirty)
-                        DirtyObjects.Add(o);
-                    return false;
-                }, coll => { });
-            return DirtyObjects;
-        }
+
 
         public void CleanAll()
         {
@@ -109,6 +126,78 @@ namespace Core.Common.Cores
                         return false;
                 }, coll => { });
             return isDirty;
+        }
+
+        public List<IDirtyCapable> GetDirtyObject()
+        {
+            List<IDirtyCapable> DirtyObjects = new List<IDirtyCapable>();
+            WalkObjectGraph(
+                o =>
+                {
+                    if (o.IsDirty)
+                        DirtyObjects.Add(o);
+                    return false;
+                }, coll => { });
+            return DirtyObjects;
+        }
+
+        protected virtual IValidator GetValidator()
+        {
+            return null;
+        }
+        [NotNavigable]
+        public IEnumerable<ValidationFailure> ValidationErrors
+        {
+            get { return _ValidationErrors; }
+        }
+
+        public void Validate()
+        {
+            if (_Validator == null)
+            {
+                ValidationResult result = _Validator.Validate(this);
+                _ValidationErrors = result.Errors;
+            }
+        }
+        [NotNavigable]
+        public virtual bool IsValid
+        {
+            get
+            {
+                if (_ValidationErrors != null && _ValidationErrors.Count() > 0)
+                    return false;
+                else
+                    return true;
+            }
+        }
+
+        public ExtensionDataObject ExtensionData { get; set; }
+
+        string IDataErrorInfo.Error
+        {
+            get
+            {
+                return string.Empty;
+            }
+        } 
+
+        string IDataErrorInfo.this[string columnName]
+        {
+            get
+            {
+                StringBuilder errors = new StringBuilder();
+
+                if (_ValidationErrors != null && _ValidationErrors.Count() > 0)
+                {
+                    foreach (ValidationFailure validationError in _ValidationErrors)
+                    {
+                        if (validationError.PropertyName == columnName)
+                            errors.AppendLine(validationError.ErrorMessage);
+                    }
+                }
+
+                return errors.ToString();
+            }
         }
     }
 }
