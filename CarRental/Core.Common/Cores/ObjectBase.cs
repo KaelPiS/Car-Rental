@@ -1,51 +1,15 @@
 ﻿using Core.Common.Extensions;
-using Core.Common.Utils;
 using System;
 using System.Collections;
 using System.Collections.Generic;
-using System.ComponentModel;
 using System.Linq;
-using System.Linq.Expressions;
 using System.Reflection;
-using System.Runtime.Serialization;
-using System.Text;
-using System.Threading.Tasks;
+using Core.Common.Contract;
 
 namespace Core.Common.Cores
 {
-    public class ObjectBase : INotifyPropertyChanged
+    public class ObjectBase : ObjectNotification, IDirtyCapable
     {
-        private event PropertyChangedEventHandler _PropertyChanged;
-        List<PropertyChangedEventHandler> PropertyChangedSubcribers = new List<PropertyChangedEventHandler>();
-        public event PropertyChangedEventHandler PropertyChanged
-        {
-            add
-            {
-                if (!PropertyChangedSubcribers.Contains(value))
-                {
-                    _PropertyChanged += value;
-                    PropertyChangedSubcribers.Add(value);
-                }
-            }
-
-            remove
-            {
-                _PropertyChanged -= value;
-                PropertyChangedSubcribers.Remove(value);
-            }
-        }
-        protected virtual void OnPropertyChanged(string PropertyName)
-        {
-            if (_PropertyChanged != null)
-                _PropertyChanged(this, new PropertyChangedEventArgs(PropertyName));
-        }
-
-        protected virtual void OnPropertyChanged<T>(Expression<Func<T>> PropertyExpression)
-        {
-            string propertyName = PropertySupport.ExtractPropertyName(PropertyExpression);
-            OnPropertyChanged(propertyName);
-        }
-
         protected virtual void OnPropertyChanged(string PropertyName, bool makeDirty)
         {
             OnPropertyChanged(PropertyName);
@@ -53,7 +17,7 @@ namespace Core.Common.Cores
                 isDirty = true;
         }
         private bool isDirty;
-
+        [NotNavigable]
         public bool IsDirty
         {
             get { return isDirty; }
@@ -97,13 +61,13 @@ namespace Core.Common.Cores
                                                 walk((ObjectBase)item);
                                         }
                                     }
-
                                 }
                             }
                         }
                     }
                 }
             };
+            walk(this);
         }
 
         public List<ObjectBase> GetDirtyObjects()
