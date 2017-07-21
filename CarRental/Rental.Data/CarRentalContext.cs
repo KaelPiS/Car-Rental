@@ -32,6 +32,16 @@ namespace CarRental.Data
             modelBuilder.Ignore<ExtensionDataObject>();
             modelBuilder.Ignore<IIdentifiableEntity>();
 
+            //Set the primary key for each table in the database
+            //Although we have already ignored the interface IIdentifiableEntity which contains EntityID but for some reasons the Entity Framework does not ignore it.
+            //So this ignore below just to make sure
+            modelBuilder.Entity<Account>().HasKey<int>(e => e.AccountID).Ignore(e => e.EntityID);
+            modelBuilder.Entity<Car>().HasKey<int>(e => e.CarID).Ignore(e => e.EntityID);
+            modelBuilder.Entity<Rental>().HasKey<int>(e => e.RentalID).Ignore(e => e.EntityID); 
+            modelBuilder.Entity<Reservation>().HasKey<int>(e => e.ReservationID).Ignore(e => e.EntityID);
+            modelBuilder.Entity<Car>().Ignore(e => e.CurrentlyRented);
+            
+
         }
 
     }
