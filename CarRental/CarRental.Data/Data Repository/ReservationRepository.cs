@@ -13,7 +13,17 @@ namespace CarRental.Data.Data_Repository
 
     public class ReservationRepository : DataRepositoryBase<Reservation>, IReservationRepository
     {
-        
+        public IEnumerable<Reservation> GetReservationByPickupDate(DateTime PickUpDate)
+        {
+            using (CarRentalContext entityContext = new CarRentalContext())
+            {
+                var query = from e in entityContext.ReservationSet
+                            where e.RentalDate < PickUpDate
+                            select e;
+                return query.ToArray().ToList();
+            }
+        }
+
 
         // Just normal Entity Framework
         protected override Reservation AddEntity(CarRentalContext entityContext, Reservation entity)

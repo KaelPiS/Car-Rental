@@ -4,7 +4,6 @@ using System;
 using System.Collections.Generic;
 using System.ComponentModel.Composition;
 using System.Linq;
-using System.Text;
 
 namespace CarRental.Data.Data_Repository
 {
@@ -13,7 +12,50 @@ namespace CarRental.Data.Data_Repository
 
     public class RentalRepository : DataRepositoryBase<Rental>, IRentalRepository
     {
-       
+        public IEnumerable<Rental> GetCurrentlyRentedCar()
+        {
+            using (CarRentalContext entityContext = new CarRentalContext())
+            {
+                var query = from e in entityContext.RentalSet
+                            where e.ReturnDate == null
+                            select e;
+                return query.ToArray().ToList();
+            }
+        }
+
+        public Rental GetCurrentRentalByCar(int carID)
+        {
+            using (CarRentalContext entityContext = new CarRentalContext())
+            {
+                var query = from e in entityContext.RentalSet
+                            where e.CarID == carID && e.ReturnDate == null
+                            select e;
+                return query.FirstOrDefault();
+            }
+        }
+
+        public IEnumerable<Rental> GetRentalHistoryByAccount(int accountID)
+        {
+            using (CarRentalContext entityContext = new CarRentalContext())
+            {
+                var query = from e in entityContext.RentalSet
+                            where e.AccountID == accountID
+                            select e;
+                return query.ToArray().ToList();
+            }
+        }
+
+        public IEnumerable<Rental> GetRentalHistoryByCar(int carID)
+        {
+            using (CarRentalContext entityContext = new CarRentalContext())
+            {
+                var query = from e in entityContext.RentalSet
+                            where e.CarID == carID
+                            select e;
+                return query.ToArray().ToList();
+            }
+        }
+
 
         // Just normal Entity Framework
         protected override Rental AddEntity(CarRentalContext entityContext, Rental entity)
