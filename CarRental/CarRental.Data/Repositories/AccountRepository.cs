@@ -24,7 +24,7 @@ namespace Rental.Data.Data_Repositories
             }
         }
 
-        // Just normal LINQ
+        // Just normal Entity Framework
         protected override Account AddEntity(CarRentalContext entityContext, Account entity)
         {
             return entityContext.AccountSet.Add(entity);
