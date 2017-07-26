@@ -8,8 +8,8 @@ using System.Text;
 
 namespace Rental.Data.Data_Repositories
 {
-    public abstract class DataRepositoryBase<T>:DataRepositoryBase<T, CarRentalContext>
-        where T:class, IIdentifiableEntity, new()
+    public abstract class DataRepositoryBase<T> : DataRepositoryBase<T, CarRentalContext>
+        where T : class, IIdentifiableEntity, new()
     {
 
     }

@@ -1,12 +1,8 @@
 ﻿using CarRental.Business.Entities;
 using Core.Common.Contract;
-using System;
-using System.Collections.Generic;
 using System.Data.Entity;
 using System.Data.Entity.ModelConfiguration.Conventions;
-using System.Linq;
 using System.Runtime.Serialization;
-using System.Text;
 
 namespace CarRental.Data
 {
@@ -21,8 +17,8 @@ namespace CarRental.Data
 
         public DbSet<Car> CarSet { get; set; }
 
-        public DbSet<Rental> RentalSet { get; set; }
-        
+        public DbSet<CarRental.Business.Entities.Rental> RentalSet { get; set; }
+
         public DbSet<Reservation> ReservationSet { get; set; }
 
         protected override void OnModelCreating(DbModelBuilder modelBuilder)
@@ -37,10 +33,10 @@ namespace CarRental.Data
             //So this ignore below just to make sure
             modelBuilder.Entity<Account>().HasKey<int>(e => e.AccountID).Ignore(e => e.EntityID);
             modelBuilder.Entity<Car>().HasKey<int>(e => e.CarID).Ignore(e => e.EntityID);
-            modelBuilder.Entity<Rental>().HasKey<int>(e => e.RentalID).Ignore(e => e.EntityID); 
+            modelBuilder.Entity<CarRental.Business.Entities.Rental>().HasKey<int>(e => e.RentalID).Ignore(e => e.EntityID);
             modelBuilder.Entity<Reservation>().HasKey<int>(e => e.ReservationID).Ignore(e => e.EntityID);
             modelBuilder.Entity<Car>().Ignore(e => e.CurrentlyRented);
-            
+
 
         }
 
