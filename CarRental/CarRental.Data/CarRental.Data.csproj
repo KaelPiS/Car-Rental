@@ -4,7 +4,7 @@
   <PropertyGroup>
     <Configuration Condition=" '$(Configuration)' == '' ">Debug</Configuration>
     <Platform Condition=" '$(Platform)' == '' ">AnyCPU</Platform>
-    <ProjectGuid>{924CBC11-5D67-4E35-954F-409EDD224E01}</ProjectGuid>
+    <ProjectGuid>{1F0E4F75-29AC-460D-BE18-58A338D3CA70}</ProjectGuid>
     <OutputType>Exe</OutputType>
     <RootNamespace>CarRental.Data</RootNamespace>
     <AssemblyName>CarRental.Data</AssemblyName>
@@ -50,13 +50,18 @@
   </ItemGroup>
   <ItemGroup>
     <Compile Include="CarRentalContext.cs" />
+    <Compile Include="Data Repository\AccountRepository.cs" />
+    <Compile Include="Data Repository\CarRepository.cs" />
+    <Compile Include="Data Repository\DataRepositoryBase.cs" />
+    <Compile Include="Data Repository\RentalRepository.cs" />
+    <Compile Include="Data Repository\ReservationRepository.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
-    <Compile Include="Repositories\AccountRepository.cs" />
-    <Compile Include="Repositories\CarRepository.cs" />
-    <Compile Include="Repositories\DataRepositoryBase.cs" />
-    <Compile Include="Repositories\RentalRepository.cs" />
-    <Compile Include="Repositories\ReservationRepository.cs" />
   </ItemGroup>
+  <ItemGroup>
+    <None Include="App.config" />
+    <None Include="packages.config" />
+  </ItemGroup>
+  <ItemGroup />
   <ItemGroup>
     <ProjectReference Include="..\CarRental.Business.Entities\CarRental.Business.Entities.csproj">
       <Project>{62673de5-54a0-4e20-959e-89ec2cd2b2c0}</Project>
@@ -74,10 +79,6 @@
       <Project>{c4ff3972-e11b-418a-8b6b-b18251fe1819}</Project>
       <Name>Core.Common</Name>
     </ProjectReference>
-  </ItemGroup>
-  <ItemGroup>
-    <None Include="App.config" />
-    <None Include="packages.config" />
   </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
 </Project>

@@ -1,20 +1,19 @@
 ﻿using CarRental.Business.Entities;
+using CarRental.Data.Contract.Repository_Interfaces;
 using System;
 using System.Collections.Generic;
+using System.ComponentModel.Composition;
 using System.Linq;
 using System.Text;
-using CarRental.Data;
-using CarRental.Data.Contract.Repository_Interfaces;
-using System.ComponentModel.Composition;
 
-namespace Rental.Data.Data_Repositories
+namespace CarRental.Data.Data_Repository
 {
     [Export(typeof(IReservationRepository))]
     [PartCreationPolicy(CreationPolicy.NonShared)]
 
     public class ReservationRepository : DataRepositoryBase<Reservation>, IReservationRepository
     {
-       
+        
 
         // Just normal Entity Framework
         protected override Reservation AddEntity(CarRentalContext entityContext, Reservation entity)

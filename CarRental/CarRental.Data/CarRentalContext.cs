@@ -1,8 +1,12 @@
 ﻿using CarRental.Business.Entities;
 using Core.Common.Contract;
+using System;
+using System.Collections.Generic;
 using System.Data.Entity;
 using System.Data.Entity.ModelConfiguration.Conventions;
+using System.Linq;
 using System.Runtime.Serialization;
+using System.Text;
 
 namespace CarRental.Data
 {
@@ -42,4 +46,3 @@ namespace CarRental.Data
 
     }
 }
-

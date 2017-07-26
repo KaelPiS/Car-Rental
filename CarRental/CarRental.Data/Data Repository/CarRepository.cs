@@ -1,26 +1,26 @@
 ﻿using CarRental.Business.Entities;
+using CarRental.Data.Contract.Repository_Interfaces;
 using System;
 using System.Collections.Generic;
+using System.ComponentModel.Composition;
 using System.Linq;
 using System.Text;
-using CarRental.Data;
-using CarRental.Data.Contract.Repository_Interfaces;
-using System.ComponentModel.Composition;
 
-namespace Rental.Data.Data_Repositories
+namespace CarRental.Data.Data_Repository
 {
     [Export(typeof(ICarRepository))]
     [PartCreationPolicy(CreationPolicy.NonShared)]
 
     public class CarRepository : DataRepositoryBase<Car>, ICarRepository
     {
+       
+
         public int myCustomMethod()
         {
             throw new NotImplementedException();
         }
 
-
-        // Just normal LINQ
+        // Just normal Entity Framework
         protected override Car AddEntity(CarRentalContext entityContext, Car entity)
         {
             return entityContext.CarSet.Add(entity);
