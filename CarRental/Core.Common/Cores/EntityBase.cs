@@ -11,6 +11,6 @@ namespace Core.Common.Cores
     public class EntityBase : IExtensibleDataObject
     {
         public ExtensionDataObject ExtensionData { get; set; }
-      
+        
     }
 }
