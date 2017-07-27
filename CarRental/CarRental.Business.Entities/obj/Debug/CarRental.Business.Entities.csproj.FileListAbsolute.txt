@@ -1,1 +1,16 @@
 C:\Users\cktran1\Documents\GitHub\Car-Rental\CarRental\CarRental.Business.Entities\bin\Debug\CarRental.Business.Entities.exe.config
+C:\Users\cktra\OneDrive\Documents\GitHub\Car-Rental\CarRental\CarRental.Business.Entities\bin\Debug\CarRental.Business.Entities.dll.config
+C:\Users\cktra\OneDrive\Documents\GitHub\Car-Rental\CarRental\CarRental.Business.Entities\bin\Debug\CarRental.Business.Entities.dll
+C:\Users\cktra\OneDrive\Documents\GitHub\Car-Rental\CarRental\CarRental.Business.Entities\bin\Debug\CarRental.Business.Entities.pdb
+C:\Users\cktra\OneDrive\Documents\GitHub\Car-Rental\CarRental\CarRental.Business.Entities\bin\Debug\Core.Common.Contract.dll
+C:\Users\cktra\OneDrive\Documents\GitHub\Car-Rental\CarRental\CarRental.Business.Entities\bin\Debug\Core.Common.dll
+C:\Users\cktra\OneDrive\Documents\GitHub\Car-Rental\CarRental\CarRental.Business.Entities\bin\Debug\EntityFramework.dll
+C:\Users\cktra\OneDrive\Documents\GitHub\Car-Rental\CarRental\CarRental.Business.Entities\bin\Debug\FluentValidation.dll
+C:\Users\cktra\OneDrive\Documents\GitHub\Car-Rental\CarRental\CarRental.Business.Entities\bin\Debug\Core.Common.Contract.pdb
+C:\Users\cktra\OneDrive\Documents\GitHub\Car-Rental\CarRental\CarRental.Business.Entities\bin\Debug\Core.Common.pdb
+C:\Users\cktra\OneDrive\Documents\GitHub\Car-Rental\CarRental\CarRental.Business.Entities\bin\Debug\Core.Common.dll.config
+C:\Users\cktra\OneDrive\Documents\GitHub\Car-Rental\CarRental\CarRental.Business.Entities\bin\Debug\EntityFramework.xml
+C:\Users\cktra\OneDrive\Documents\GitHub\Car-Rental\CarRental\CarRental.Business.Entities\bin\Debug\FluentValidation.xml
+C:\Users\cktra\OneDrive\Documents\GitHub\Car-Rental\CarRental\CarRental.Business.Entities\obj\Debug\CarRental.Business.Entities.csprojResolveAssemblyReference.cache
+C:\Users\cktra\OneDrive\Documents\GitHub\Car-Rental\CarRental\CarRental.Business.Entities\obj\Debug\CarRental.Business.Entities.dll
+C:\Users\cktra\OneDrive\Documents\GitHub\Car-Rental\CarRental\CarRental.Business.Entities\obj\Debug\CarRental.Business.Entities.pdb

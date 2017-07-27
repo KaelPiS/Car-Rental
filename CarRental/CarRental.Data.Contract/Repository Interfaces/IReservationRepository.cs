@@ -9,6 +9,7 @@ namespace CarRental.Data.Contract.Repository_Interfaces
 {
     public interface IReservationRepository:IDataRepository<Reservation>
     {
+        IEnumerable<Reservation> GetReservationByPickupDate(DateTime PickUpDate);
 
     }
 }
