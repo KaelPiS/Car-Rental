@@ -128,7 +128,7 @@ namespace Core.Common.Cores
             return isDirty;
         }
 
-        public List<IDirtyCapable> GetDirtyObject()
+        public List<IDirtyCapable> GetDirtyObjects()
         {
             List<IDirtyCapable> DirtyObjects = new List<IDirtyCapable>();
             WalkObjectGraph(
