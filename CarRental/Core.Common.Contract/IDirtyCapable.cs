@@ -6,7 +6,7 @@ namespace Core.Common.Contract
     {
         bool IsDirty { get; }
         bool isAnythingDirty();
-        List<IDirtyCapable> GetDirtyObject();
+        List<IDirtyCapable> GetDirtyObjects();
         void CleanAll();
     }
 }
