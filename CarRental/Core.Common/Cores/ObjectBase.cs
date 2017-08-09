@@ -22,7 +22,7 @@ namespace Core.Common.Cores
             _Validator = GetValidator();
             Validate();
         }
-        protected IValidator _Validator;
+        protected IValidator _Validator = null;
         protected IEnumerable<ValidationFailure> _ValidationErrors;
         protected override void OnPropertyChanged(string propertyName)
         {
@@ -35,7 +35,7 @@ namespace Core.Common.Cores
         }
         protected virtual void OnPropertyChanged(string PropertyName, bool makeDirty)
         {
-            OnPropertyChanged(PropertyName);
+            base.OnPropertyChanged(PropertyName);
             if (makeDirty)
                 isDirty = true;
             Validate();
@@ -119,7 +119,7 @@ namespace Core.Common.Cores
                 {
                     if (o.IsDirty)
                     {
-                        IsDirty = true;
+                        isDirty = true;
                         return true;
                     }
                     else
@@ -149,11 +149,12 @@ namespace Core.Common.Cores
         public IEnumerable<ValidationFailure> ValidationErrors
         {
             get { return _ValidationErrors; }
+            set { }
         }
 
         public void Validate()
         {
-            if (_Validator == null)
+            if (_Validator != null)
             {
                 ValidationResult result = _Validator.Validate(this);
                 _ValidationErrors = result.Errors;
