@@ -13,8 +13,6 @@ namespace CarRental.Data.Data_Repository
 
     public class CarRepository : DataRepositoryBase<Car>, ICarRepository
     {
-       
-
         public int myCustomMethod()
         {
             throw new NotImplementedException();

@@ -10,8 +10,8 @@ using System.Threading.Tasks;
 namespace Core.Common.Data
 {
     public abstract class DataRepositoryBase<T, U> : IDataRepository<T>
-        where T:class, IIdentifiableEntity, new()
-        where U:DbContext, new()
+        where T : class, IIdentifiableEntity, new()
+        where U : DbContext, new()
     {
         // These abstract methods will be overwritten, make each repository has its own method
         protected abstract T AddEntity(U entityContext, T entity);
@@ -34,7 +34,7 @@ namespace Core.Common.Data
         public IEnumerable<T> Get()
         {
             using (U entityContext = new U())
-                return GetEntities(entityContext).ToArray().ToList();
+                return (GetEntities(entityContext)).ToArray().ToList();
         }
 
         public T Get(int id)

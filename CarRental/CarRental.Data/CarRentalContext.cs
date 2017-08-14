@@ -2,6 +2,7 @@
 using Core.Common.Contract;
 using System;
 using System.Collections.Generic;
+using System.ComponentModel;
 using System.Data.Entity;
 using System.Data.Entity.ModelConfiguration.Conventions;
 using System.Linq;
@@ -15,7 +16,11 @@ namespace CarRental.Data
         public CarRentalContext() : base("name=CarRental")
         {
             Database.SetInitializer<CarRentalContext>(null); //Tell the database to use this context class
+
         }
+      
+            
+      
 
         public DbSet<Account> AccountSet { get; set; }
 
@@ -27,11 +32,12 @@ namespace CarRental.Data
 
         protected override void OnModelCreating(DbModelBuilder modelBuilder)
         {
+            var instance = System.Data.Entity.SqlServer.SqlProviderServices.Instance;
             modelBuilder.Conventions.Remove<PluralizingTableNameConvention>(); //Remove default Name Convention
 
             modelBuilder.Ignore<ExtensionDataObject>();
             modelBuilder.Ignore<IIdentifiableEntity>();
-
+            modelBuilder.Ignore<PropertyChangedEventHandler>();
             //Set the primary key for each table in the database
             //Although we have already ignored the interface IIdentifiableEntity which contains EntityID but for some reasons the Entity Framework does not ignore it.
             //So this ignore below just to make sure
