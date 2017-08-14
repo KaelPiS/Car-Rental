@@ -12,6 +12,7 @@ using Core.Common.Utils;
 using System.Runtime.Serialization;
 using System.ComponentModel;
 using System.Text;
+using System.ComponentModel.Composition.Hosting;
 
 namespace Core.Common.Cores
 {
@@ -22,6 +23,7 @@ namespace Core.Common.Cores
             _Validator = GetValidator();
             Validate();
         }
+        public static CompositionContainer Container { get; set; }
         protected IValidator _Validator = null;
         protected IEnumerable<ValidationFailure> _ValidationErrors;
         protected override void OnPropertyChanged(string propertyName)

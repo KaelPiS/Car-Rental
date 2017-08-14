@@ -12,7 +12,7 @@ namespace Core.Common.Contract
     }
 
     public interface IDataRepository<T>:IDataRepository
-        where T:class, new() //Where T:class mean that T must be a reference type including class, interface, delegate or array type
+        where T : class, new() //Where T:class mean that T must be a reference type including class, interface, delegate or array type
                              //new() make sure that T have to have a default constructer
     {
         T Add(T entity); //add new entity
