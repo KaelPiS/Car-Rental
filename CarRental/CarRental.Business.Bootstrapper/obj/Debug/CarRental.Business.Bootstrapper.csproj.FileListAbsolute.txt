@@ -25,3 +25,4 @@ C:\Users\cktra\OneDrive\Documents\GitHub\Car-Rental\CarRental\CarRental.Business
 C:\Users\cktra\OneDrive\Documents\GitHub\Car-Rental\CarRental\CarRental.Business.Bootstrapper\obj\Debug\CarRental.Business.Bootstrapper.csprojResolveAssemblyReference.cache
 C:\Users\cktra\OneDrive\Documents\GitHub\Car-Rental\CarRental\CarRental.Business.Bootstrapper\obj\Debug\CarRental.Business.Bootstrapper.dll
 C:\Users\cktra\OneDrive\Documents\GitHub\Car-Rental\CarRental\CarRental.Business.Bootstrapper\obj\Debug\CarRental.Business.Bootstrapper.pdb
+C:\Users\cktra\OneDrive\Documents\GitHub\Car-Rental\CarRental\CarRental.Business.Bootstrapper\obj\Debug\CarRental.Business.Bootstrapper.csproj.CoreCompileInputs.cache
