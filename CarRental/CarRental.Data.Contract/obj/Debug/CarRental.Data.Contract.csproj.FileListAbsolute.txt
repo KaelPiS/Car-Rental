@@ -19,3 +19,4 @@ C:\Users\cktra\OneDrive\Documents\GitHub\Car-Rental\CarRental\CarRental.Data.Con
 C:\Users\cktra\OneDrive\Documents\GitHub\Car-Rental\CarRental\CarRental.Data.Contract\bin\Debug\FluentValidation.xml
 C:\Users\cktra\OneDrive\Documents\GitHub\Car-Rental\CarRental\CarRental.Data.Contract\obj\Debug\CarRental.Data.Contract.dll
 C:\Users\cktra\OneDrive\Documents\GitHub\Car-Rental\CarRental\CarRental.Data.Contract\obj\Debug\CarRental.Data.Contract.pdb
+C:\Users\cktra\OneDrive\Documents\GitHub\Car-Rental\CarRental\CarRental.Data.Contract\obj\Debug\CarRental.Data.Contract.csproj.CoreCompileInputs.cache

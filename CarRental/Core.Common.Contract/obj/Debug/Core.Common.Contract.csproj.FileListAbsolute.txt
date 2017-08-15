@@ -3,3 +3,4 @@ C:\Users\cktra\OneDrive\Documents\GitHub\Car-Rental\CarRental\Core.Common.Contra
 C:\Users\cktra\OneDrive\Documents\GitHub\Car-Rental\CarRental\Core.Common.Contract\obj\Debug\Core.Common.Contract.dll
 C:\Users\cktra\OneDrive\Documents\GitHub\Car-Rental\CarRental\Core.Common.Contract\obj\Debug\Core.Common.Contract.pdb
 C:\Users\cktra\OneDrive\Documents\GitHub\Car-Rental\CarRental\Core.Common.Contract\obj\Debug\Core.Common.Contract.csprojResolveAssemblyReference.cache
+C:\Users\cktra\OneDrive\Documents\GitHub\Car-Rental\CarRental\Core.Common.Contract\obj\Debug\Core.Common.Contract.csproj.CoreCompileInputs.cache

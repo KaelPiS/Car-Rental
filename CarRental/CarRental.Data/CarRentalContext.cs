@@ -15,7 +15,7 @@ namespace CarRental.Data
     {
         public CarRentalContext() : base("name=CarRental")
         {
-            Database.SetInitializer<CarRentalContext>(null); //Tell the database to use this context class
+            //Database.SetInitializer<CarRentalContext>(null); //Tell the database to use this context class
 
         }
       

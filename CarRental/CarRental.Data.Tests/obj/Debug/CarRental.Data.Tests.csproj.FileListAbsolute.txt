@@ -35,3 +35,4 @@ C:\Users\cktra\OneDrive\Documents\GitHub\Car-Rental\CarRental\CarRental.Data.Tes
 C:\Users\cktra\OneDrive\Documents\GitHub\Car-Rental\CarRental\CarRental.Data.Tests\bin\Debug\EntityFramework.SqlServer.dll
 C:\Users\cktra\OneDrive\Documents\GitHub\Car-Rental\CarRental\CarRental.Data.Tests\bin\Debug\EntityFramework.SqlServer.xml
 C:\Users\cktra\OneDrive\Documents\GitHub\Car-Rental\CarRental\CarRental.Data.Tests\bin\Debug\CarRental.Data.Tests.dll.config
+C:\Users\cktra\OneDrive\Documents\GitHub\Car-Rental\CarRental\CarRental.Data.Tests\obj\Debug\CarRental.Data.Tests.csproj.CoreCompileInputs.cache

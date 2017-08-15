@@ -14,3 +14,4 @@ C:\Users\cktra\OneDrive\Documents\GitHub\Car-Rental\CarRental\CarRental.Business
 C:\Users\cktra\OneDrive\Documents\GitHub\Car-Rental\CarRental\CarRental.Business.Entities\obj\Debug\CarRental.Business.Entities.csprojResolveAssemblyReference.cache
 C:\Users\cktra\OneDrive\Documents\GitHub\Car-Rental\CarRental\CarRental.Business.Entities\obj\Debug\CarRental.Business.Entities.dll
 C:\Users\cktra\OneDrive\Documents\GitHub\Car-Rental\CarRental\CarRental.Business.Entities\obj\Debug\CarRental.Business.Entities.pdb
+C:\Users\cktra\OneDrive\Documents\GitHub\Car-Rental\CarRental\CarRental.Business.Entities\obj\Debug\CarRental.Business.Entities.csproj.CoreCompileInputs.cache
