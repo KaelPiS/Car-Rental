@@ -5,6 +5,7 @@ using System.Collections.Generic;
 using System.ComponentModel.Composition;
 using System.Linq;
 using System.Text;
+using CarRental.Data.Contract.DTOs;
 
 namespace CarRental.Data.Data_Repository
 {
@@ -13,6 +14,23 @@ namespace CarRental.Data.Data_Repository
 
     public class ReservationRepository : DataRepositoryBase<Reservation>, IReservationRepository
     {
+        public IEnumerable<CustomerReservationInfo> GetCustomerReservationInfo()
+        {
+            using (CarRentalContext entityContext = new CarRentalContext())
+            {
+                var query = from r in entityContext.ReservationSet
+                            join a in entityContext.AccountSet on r.AccountID equals a.AccountID
+                            join c in entityContext.CarSet on r.CarID equals c.CarID
+                            select new CustomerReservationInfo()
+                            {
+                                Reservation = r,
+                                Customer = a,
+                                Car = c
+                            };
+                return query.ToList().ToArray();
+            }
+        }
+
         public IEnumerable<Reservation> GetReservationByPickupDate(DateTime PickUpDate)
         {
             using (CarRentalContext entityContext = new CarRentalContext())

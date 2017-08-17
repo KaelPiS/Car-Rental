@@ -61,6 +61,7 @@
     <Compile Include="Data Repository\DataRepositoryBase.cs" />
     <Compile Include="Data Repository\RentalRepository.cs" />
     <Compile Include="Data Repository\ReservationRepository.cs" />
+    <Compile Include="DataRepositoryFactory.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
   </ItemGroup>
   <ItemGroup>
