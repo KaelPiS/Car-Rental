@@ -4,6 +4,7 @@ using System;
 using System.Collections.Generic;
 using System.ComponentModel.Composition;
 using System.Linq;
+using CarRental.Data.Contract.DTOs;
 
 namespace CarRental.Data.Data_Repository
 {
@@ -12,6 +13,27 @@ namespace CarRental.Data.Data_Repository
 
     public class RentalRepository : DataRepositoryBase<Rental>, IRentalRepository
     {
+        public IEnumerable<CustomerRentalInfo> GetCurrentCustomerRentalInfo()
+        {
+            using (CarRentalContext entityContext = new CarRentalContext())
+            {
+                var query = from r in entityContext.RentalSet
+                            where r.ReturnDate == null
+                            join a in entityContext.AccountSet on r.AccountID equals a.AccountID
+                            join c in entityContext.CarSet on r.CarID equals c.CarID
+                            select new CustomerRentalInfo()
+                            {
+                                Customer = a,
+                                Rental = r,
+                                Car = c
+                            };
+
+                return query.ToList().ToArray(); // Using this because it will make sure the data from the query can be use
+                                                 // when the entityContext was disposed
+                                                 // It overwrites lazy loading of Entity Framework 
+            }
+        }
+
         public IEnumerable<Rental> GetCurrentlyRentedCar()
         {
             using (CarRentalContext entityContext = new CarRentalContext())
