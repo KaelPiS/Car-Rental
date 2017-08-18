@@ -21,5 +21,21 @@ namespace CarRental.Business.Contracts
         Car[] GetAllCars(); // The reason for using an array instead of IEnumberable or List is because the client side,
                             // which retrieves this data is not 100% .NET, and this makes sure that non-.NET client can still 
                             // retrieve the data as well
+
+
+        // Because this operation relative to I/O so it needs to have transaction, it will allow to add other things in data access
+        // layer with touching the service
+
+        // This transaction option allows the trasaction to flow into operation if it start because the service call was initiated
+        [OperationContract]
+        [TransactionFlow(TransactionFlowOption.Allowed)]
+        void DeleteCar(int carId);
+
+        [OperationContract]
+        [TransactionFlow(TransactionFlowOption.Allowed)]
+        Car UpdateCar(Car car);
+
+        [OperationContract]
+        Car[] GetAvailableCars(DateTime pickupDate, DateTime returnDate);
     }
 }
