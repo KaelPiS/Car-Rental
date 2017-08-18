@@ -19,3 +19,4 @@ C:\Users\cktra\OneDrive\Documents\GitHub\Car-Rental\CarRental\Core.Common.Test\b
 C:\Users\cktra\OneDrive\Documents\GitHub\Car-Rental\CarRental\Core.Common.Test\bin\Debug\EntityFramework.xml
 C:\Users\cktra\OneDrive\Documents\GitHub\Car-Rental\CarRental\Core.Common.Test\obj\Debug\Core.Common.Test.dll
 C:\Users\cktra\OneDrive\Documents\GitHub\Car-Rental\CarRental\Core.Common.Test\obj\Debug\Core.Common.Test.pdb
+C:\Users\cktra\OneDrive\Documents\GitHub\Car-Rental\CarRental\Core.Common.Test\obj\Debug\Core.Common.Test.csproj.CoreCompileInputs.cache
