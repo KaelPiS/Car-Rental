@@ -1,0 +1,2 @@
+C:\Users\cktra\OneDrive\Documents\GitHub\Car-Rental\CarRental\CarRental.Business\obj\Debug\CarRental.Business.csprojResolveAssemblyReference.cache
+C:\Users\cktra\OneDrive\Documents\GitHub\Car-Rental\CarRental\CarRental.Business\obj\Debug\CarRental.Business.csproj.CoreCompileInputs.cache

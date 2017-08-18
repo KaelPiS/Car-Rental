@@ -36,6 +36,22 @@ namespace CarRental.Business.Managers
             }
         }
 
+        protected T ExecuteFaultHandledOperation(Action codeToExcecute)
+        {
+            try
+            {
+                codeToExcecute.Invoke();
+            }
+            catch (FaultException ex)
+            {
+                throw ex;
+            }
+            catch (Exception ex)
+            {
+                throw new FaultException(ex.Message);
+            }
+        }
+
 
     }
 }

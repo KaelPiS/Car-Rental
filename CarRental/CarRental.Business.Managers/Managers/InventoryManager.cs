@@ -11,6 +11,7 @@ using System.Threading.Tasks;
 using CarRental.Business.Entities;
 using CarRental.Data.Contract.Repository_Interfaces;
 using Core.Common.Exceptions;
+using CarRental.Business.Common;
 
 namespace CarRental.Business.Managers.Managers
 {
@@ -23,7 +24,7 @@ namespace CarRental.Business.Managers.Managers
     // Because every call will be handled in different instance of service, we can set the Concurrency into Multiple without 
     // worry about multi-threading problems
     
-    // 
+    
     [ServiceBehavior(InstanceContextMode = InstanceContextMode.PerCall, 
         ConcurrencyMode =ConcurrencyMode.Multiple,
         ReleaseServiceInstanceOnTransactionComplete = false)]
@@ -31,9 +32,11 @@ namespace CarRental.Business.Managers.Managers
     {
         [Import]
         IDataRepositoryFactory _DataRepositoryFactory;
+
+        [Import]
+        IBusinessEngineFactory _BusinessEngineFactory;
         public InventoryManager()
-        {
-            
+        {      
         }
 
         // This for testing purpose only, WCF not even care about this constructor, all it cares about is the default constructor
@@ -42,9 +45,22 @@ namespace CarRental.Business.Managers.Managers
             _DataRepositoryFactory = dataRepositoryFactory;
         }
 
+        public InventoryManager(IBusinessEngineFactory businessEngineFactory)
+        {
+            _BusinessEngineFactory = businessEngineFactory;
+        }
+
+        public InventoryManager(IDataRepositoryFactory dataRepositoryFactory, IBusinessEngineFactory businessEngineFactory)
+        {
+            _DataRepositoryFactory = dataRepositoryFactory;
+            _BusinessEngineFactory = businessEngineFactory;
+        }
+
+
         public Car[] GetAllCars()
         {
-          
+            return ExecuteFaultHandledOperation(() =>
+            {
                 // Just simply walk through the list of cars and set the currentRented property, because I told Entity Framework
                 // to ignore the currentRented property so it will not be mapped.
                 ICarRepository carRepository = _DataRepositoryFactory.GetDataRepository<ICarRepository>();
@@ -57,8 +73,7 @@ namespace CarRental.Business.Managers.Managers
                     car.CurrentlyRented = (rentedCar != null);
                 }
                 return cars.ToArray();
-    
-            
+            });
         }
 
         public Car GetCar(int carId)
@@ -77,6 +92,56 @@ namespace CarRental.Business.Managers.Managers
                 return carEntity;
             });
            
+        }
+
+        // Just instantiating the carRepository using _DataRepositoryFactory, depend on the existence of CarID property, it will 
+        // add or update end then return the updatedEntity
+        [OperationBehavior(TransactionScopeRequired = true)]
+        public Car UpdateCar(Car car)
+        {
+            return ExecuteFaultHandledOperation(() =>
+            {
+                ICarRepository carRepository = _DataRepositoryFactory.GetDataRepository<ICarRepository>();
+                Car updatedEntity = null;
+                if (car.CarID == 0)
+                    updatedEntity = carRepository.Add(car);
+                else
+                    updatedEntity = carRepository.Update(car);
+                return updatedEntity;
+            });
+        }
+
+        [OperationBehavior(TransactionScopeRequired = true)]
+        public void DeleteCar(int carId)
+        {
+            ExecuteFaultHandledOperation(() =>
+            {
+                ICarRepository carRepository = _DataRepositoryFactory.GetDataRepository<ICarRepository>();
+                carRepository.Remove(carId);
+            });
+        }
+
+        public Car[] GetAvailableCars(DateTime pickupDate, DateTime returnDate)
+        {
+            return ExecuteFaultHandledOperation(() =>
+            {
+                ICarRepository carRepository = _DataRepositoryFactory.GetDataRepository<ICarRepository>();
+                IRentalRepository rentalRepository = _DataRepositoryFactory.GetDataRepository<IRentalRepository>();
+                IReservationRepository reservationRepository = _DataRepositoryFactory.GetDataRepository<IReservationRepository>();
+
+                ICarRentalEngine carRentalEngine = _BusinessEngineFactory.GetBusinessEngine<ICarRentalEngine>();
+
+                IEnumerable<Car> allCars = carRepository.Get();
+                IEnumerable<Rental> allRentals = rentalRepository.GetCurrentlyRentedCar();
+                IEnumerable<Reservation> allReservations = reservationRepository.Get();
+
+                List<Car> availableCars = new List<Car>();
+                foreach (Car car  in allCars)
+                {
+                    if (carRentalEngine.IsCarAvailableForRental(car.CarID, pickupDate, returnDate, allRentals, allReservations))
+                        availableCars.Add(car);
+                }
+            });
         }
     }
 }
