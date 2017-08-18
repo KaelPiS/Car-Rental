@@ -13,3 +13,4 @@ C:\Users\cktra\OneDrive\Documents\GitHub\Car-Rental\CarRental\CarRental.Client.E
 C:\Users\cktra\OneDrive\Documents\GitHub\Car-Rental\CarRental\CarRental.Client.Entities\bin\Debug\FluentValidation.xml
 C:\Users\cktra\OneDrive\Documents\GitHub\Car-Rental\CarRental\CarRental.Client.Entities\obj\Debug\CarRental.Client.Entities.dll
 C:\Users\cktra\OneDrive\Documents\GitHub\Car-Rental\CarRental\CarRental.Client.Entities\obj\Debug\CarRental.Client.Entities.pdb
+C:\Users\cktra\OneDrive\Documents\GitHub\Car-Rental\CarRental\CarRental.Client.Entities\obj\Debug\CarRental.Client.Entities.csproj.CoreCompileInputs.cache
