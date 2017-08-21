@@ -26,3 +26,15 @@ C:\Users\cktra\OneDrive\Documents\GitHub\Car-Rental\CarRental\CarRental.Business
 C:\Users\cktra\OneDrive\Documents\GitHub\Car-Rental\CarRental\CarRental.Business.Bootstrapper\obj\Debug\CarRental.Business.Bootstrapper.dll
 C:\Users\cktra\OneDrive\Documents\GitHub\Car-Rental\CarRental\CarRental.Business.Bootstrapper\obj\Debug\CarRental.Business.Bootstrapper.pdb
 C:\Users\cktra\OneDrive\Documents\GitHub\Car-Rental\CarRental\CarRental.Business.Bootstrapper\obj\Debug\CarRental.Business.Bootstrapper.csproj.CoreCompileInputs.cache
+C:\Users\cktra\OneDrive\Documents\GitHub\Car-Rental\CarRental\CarRental.Business.Bootstrapper\bin\Debug\CarRental.Business.Common.dll
+C:\Users\cktra\OneDrive\Documents\GitHub\Car-Rental\CarRental\CarRental.Business.Bootstrapper\bin\Debug\CarRental.Business.Contracts.dll
+C:\Users\cktra\OneDrive\Documents\GitHub\Car-Rental\CarRental\CarRental.Business.Bootstrapper\bin\Debug\CarRental.Business.dll
+C:\Users\cktra\OneDrive\Documents\GitHub\Car-Rental\CarRental\CarRental.Business.Bootstrapper\bin\Debug\CarRental.Business.Managers.dll
+C:\Users\cktra\OneDrive\Documents\GitHub\Car-Rental\CarRental\CarRental.Business.Bootstrapper\bin\Debug\CarRental.Common.dll
+C:\Users\cktra\OneDrive\Documents\GitHub\Car-Rental\CarRental\CarRental.Business.Bootstrapper\bin\Debug\CarRental.Business.Common.pdb
+C:\Users\cktra\OneDrive\Documents\GitHub\Car-Rental\CarRental\CarRental.Business.Bootstrapper\bin\Debug\CarRental.Business.Contracts.pdb
+C:\Users\cktra\OneDrive\Documents\GitHub\Car-Rental\CarRental\CarRental.Business.Bootstrapper\bin\Debug\CarRental.Business.Managers.pdb
+C:\Users\cktra\OneDrive\Documents\GitHub\Car-Rental\CarRental\CarRental.Business.Bootstrapper\bin\Debug\CarRental.Business.pdb
+C:\Users\cktra\OneDrive\Documents\GitHub\Car-Rental\CarRental\CarRental.Business.Bootstrapper\bin\Debug\CarRental.Common.pdb
+C:\Users\cktra\OneDrive\Documents\GitHub\Car-Rental\CarRental\CarRental.Business.Bootstrapper\bin\Debug\Core.Common.ServiceModel.dll
+C:\Users\cktra\OneDrive\Documents\GitHub\Car-Rental\CarRental\CarRental.Business.Bootstrapper\bin\Debug\Core.Common.ServiceModel.pdb

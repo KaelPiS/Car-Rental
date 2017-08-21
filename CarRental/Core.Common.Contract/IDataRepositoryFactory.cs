@@ -10,5 +10,7 @@ namespace Core.Common.Contract
     public interface IDataRepositoryFactory
     {
         T GetDataRepository<T>() where T : IDataRepository; // Get the Data Repository that implement the IDataRepository interface
+
+        
     }
 }

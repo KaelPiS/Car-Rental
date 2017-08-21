@@ -5,7 +5,7 @@ using System.Runtime.Serialization;
 namespace CarRental.Business.Entities
 {
     [DataContract]
-        public class Account : EntityBase, IIdentifiableEntity
+        public class Account : EntityBase, IIdentifiableEntity, IAccountOwnedEntity
         {
             [DataMember]
             public int AccountID { get; set; }
@@ -45,6 +45,6 @@ namespace CarRental.Business.Entities
                 set { AccountID = value; }
             }
 
-
+        public int AccountOwnerID { get { return AccountID; } }
     }
     }
