@@ -1,12 +1,7 @@
 ﻿using CarRental.Business.Contracts.Service_Contracts;
 using Core.Common.Contract;
-using System;
-using System.Collections.Generic;
 using System.ComponentModel.Composition;
-using System.Linq;
 using System.ServiceModel;
-using System.Text;
-using System.Threading.Tasks;
 using CarRental.Business.Entities;
 using CarRental.Data.Contract.Repository_Interfaces;
 using Core.Common.Exceptions;

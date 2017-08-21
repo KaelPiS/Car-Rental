@@ -72,7 +72,7 @@ namespace CarRental.Business.Contracts.Service_Contracts
         [OperationContract]
         [FaultContract(typeof(NotFoundException))]
         [FaultContract(typeof(AuthorizationValidationException))]
-        Rental GetRental(int rentalId);
+        Rental GetRental(int rentalID);
 
         [OperationContract]
         [FaultContract(typeof(NotFoundException))]

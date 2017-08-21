@@ -1,5 +1,4 @@
-﻿using System;
-using Microsoft.VisualStudio.TestTools.UnitTesting;
+﻿using Microsoft.VisualStudio.TestTools.UnitTesting;
 using Core.Common.Cores;
 using CarRental.Business.Bootstrapper;
 using System.ComponentModel.Composition;
