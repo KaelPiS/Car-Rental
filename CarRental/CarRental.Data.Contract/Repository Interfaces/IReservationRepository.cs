@@ -12,5 +12,6 @@ namespace CarRental.Data.Contract.Repository_Interfaces
     {
         IEnumerable<Reservation> GetReservationByPickupDate(DateTime PickUpDate);
         IEnumerable<CustomerReservationInfo> GetCustomerReservationInfo();
+        IEnumerable<CustomerReservationInfo> GetCustomerOpenReservationInfo(int accountId);
     }
 }

@@ -12,6 +12,8 @@ using CarRental.Business.Entities;
 using CarRental.Data.Contract.Repository_Interfaces;
 using Core.Common.Exceptions;
 using CarRental.Business.Common;
+using System.Security.Permissions;
+using CarRental.Common;
 
 namespace CarRental.Business.Managers.Managers
 {
@@ -56,7 +58,8 @@ namespace CarRental.Business.Managers.Managers
             _BusinessEngineFactory = businessEngineFactory;
         }
 
-
+        [PrincipalPermission(SecurityAction.Demand, Role = Security.CarRentalAdminRole)]
+        [PrincipalPermission(SecurityAction.Demand, Name = Security.CarRentalUser)]
         public Car[] GetAllCars()
         {
             return ExecuteFaultHandledOperation(() =>
@@ -76,6 +79,10 @@ namespace CarRental.Business.Managers.Managers
             });
         }
 
+        // WCF will authorize this operation only for users that are in the "CarRentalAdminRole" windows group. In the case of desktop 
+        // app, it will be the actual user behind the firewall. In the case of web app, it will be the IIS
+        [PrincipalPermission(SecurityAction.Demand, Role = Security.CarRentalAdminRole)]
+        [PrincipalPermission(SecurityAction.Demand, Name = Security.CarRentalUser)]
         public Car GetCar(int carId)
         {
             return ExecuteFaultHandledOperation(() =>
@@ -96,7 +103,9 @@ namespace CarRental.Business.Managers.Managers
 
         // Just instantiating the carRepository using _DataRepositoryFactory, depend on the existence of CarID property, it will 
         // add or update end then return the updatedEntity
+
         [OperationBehavior(TransactionScopeRequired = true)]
+        [PrincipalPermission(SecurityAction.Demand, Role = Security.CarRentalAdminRole)]
         public Car UpdateCar(Car car)
         {
             return ExecuteFaultHandledOperation(() =>
@@ -112,6 +121,7 @@ namespace CarRental.Business.Managers.Managers
         }
 
         [OperationBehavior(TransactionScopeRequired = true)]
+        [PrincipalPermission(SecurityAction.Demand, Role = Security.CarRentalAdminRole)]
         public void DeleteCar(int carId)
         {
             ExecuteFaultHandledOperation(() =>
@@ -121,6 +131,8 @@ namespace CarRental.Business.Managers.Managers
             });
         }
 
+        [PrincipalPermission(SecurityAction.Demand, Role = Security.CarRentalAdminRole)]
+        [PrincipalPermission(SecurityAction.Demand, Name = Security.CarRentalUser)]
         public Car[] GetAvailableCars(DateTime pickupDate, DateTime returnDate)
         {
             return ExecuteFaultHandledOperation(() =>
@@ -141,6 +153,7 @@ namespace CarRental.Business.Managers.Managers
                     if (carRentalEngine.IsCarAvailableForRental(car.CarID, pickupDate, returnDate, allRentals, allReservations))
                         availableCars.Add(car);
                 }
+                return availableCars.ToArray();
             });
         }
     }

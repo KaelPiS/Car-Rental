@@ -12,5 +12,11 @@ namespace CarRental.Business.Common
     {
         bool IsCarAvailableForRental(int carID, DateTime pickupDate, DateTime returnDate,
            IEnumerable<Rental> rentedCars, IEnumerable<Reservation> reservedCars);
+
+        bool IsCarCurrentlyRented(int carID, int accountID);
+
+        bool IsCarCurrentlyRented(int carID);
+
+        Rental RentCarToCustomer(string loginEmail, int carID, DateTime rentalDate, DateTime dateDue);
     }
 }

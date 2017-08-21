@@ -40,3 +40,9 @@ C:\Users\cktra\OneDrive\Documents\GitHub\Car-Rental\CarRental\CarRental.Data.Tes
 C:\Users\cktra\OneDrive\Documents\GitHub\Car-Rental\CarRental\CarRental.Data.Tests\bin\Debug\Moq.dll
 C:\Users\cktra\OneDrive\Documents\GitHub\Car-Rental\CarRental\CarRental.Data.Tests\bin\Debug\Moq.pdb
 C:\Users\cktra\OneDrive\Documents\GitHub\Car-Rental\CarRental\CarRental.Data.Tests\bin\Debug\Moq.xml
+C:\Users\cktra\OneDrive\Documents\GitHub\Car-Rental\CarRental\CarRental.Data.Tests\bin\Debug\CarRental.Business.dll
+C:\Users\cktra\OneDrive\Documents\GitHub\Car-Rental\CarRental\CarRental.Data.Tests\bin\Debug\CarRental.Business.Common.dll
+C:\Users\cktra\OneDrive\Documents\GitHub\Car-Rental\CarRental\CarRental.Data.Tests\bin\Debug\CarRental.Business.pdb
+C:\Users\cktra\OneDrive\Documents\GitHub\Car-Rental\CarRental\CarRental.Data.Tests\bin\Debug\CarRental.Business.Common.pdb
+C:\Users\cktra\OneDrive\Documents\GitHub\Car-Rental\CarRental\CarRental.Data.Tests\bin\Debug\CarRental.Common.dll
+C:\Users\cktra\OneDrive\Documents\GitHub\Car-Rental\CarRental\CarRental.Data.Tests\bin\Debug\CarRental.Common.pdb

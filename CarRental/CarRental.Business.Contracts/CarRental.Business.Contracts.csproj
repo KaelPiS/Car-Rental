@@ -42,16 +42,25 @@
     <Reference Include="System.Xml" />
   </ItemGroup>
   <ItemGroup>
+    <Compile Include="Data Contracts\CustomerRentalData.cs" />
+    <Compile Include="Data Contracts\CustomerReservationData.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
     <Compile Include="Service Contracts\IInventoryService.cs" />
+    <Compile Include="Service Contracts\IRentalService.cs" />
   </ItemGroup>
-  <ItemGroup>
-    <Folder Include="Data Contracts\" />
-  </ItemGroup>
+  <ItemGroup />
   <ItemGroup>
     <ProjectReference Include="..\CarRental.Business.Entities\CarRental.Business.Entities.csproj">
       <Project>{62673DE5-54A0-4E20-959E-89EC2CD2B2C0}</Project>
       <Name>CarRental.Business.Entities</Name>
+    </ProjectReference>
+    <ProjectReference Include="..\CarRental.Common\CarRental.Common.csproj">
+      <Project>{12496675-A0EC-4659-A04C-F0CCDF6EBFEB}</Project>
+      <Name>CarRental.Common</Name>
+    </ProjectReference>
+    <ProjectReference Include="..\Core.Common.ServiceModel\Core.Common.ServiceModel.csproj">
+      <Project>{CEF4D9CF-F9B7-4116-894C-D8AC8948063C}</Project>
+      <Name>Core.Common.ServiceModel</Name>
     </ProjectReference>
     <ProjectReference Include="..\Core.Common\Core.Common.csproj">
       <Project>{C4FF3972-E11B-418A-8B6B-B18251FE1819}</Project>

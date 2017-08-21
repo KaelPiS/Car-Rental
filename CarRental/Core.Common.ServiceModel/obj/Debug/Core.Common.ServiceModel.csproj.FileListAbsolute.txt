@@ -1,0 +1,6 @@
+C:\Users\cktra\OneDrive\Documents\GitHub\Car-Rental\CarRental\Core.Common.ServiceModel\bin\Debug\Core.Common.ServiceModel.dll
+C:\Users\cktra\OneDrive\Documents\GitHub\Car-Rental\CarRental\Core.Common.ServiceModel\bin\Debug\Core.Common.ServiceModel.pdb
+C:\Users\cktra\OneDrive\Documents\GitHub\Car-Rental\CarRental\Core.Common.ServiceModel\obj\Debug\Core.Common.ServiceModel.csprojResolveAssemblyReference.cache
+C:\Users\cktra\OneDrive\Documents\GitHub\Car-Rental\CarRental\Core.Common.ServiceModel\obj\Debug\Core.Common.ServiceModel.csproj.CoreCompileInputs.cache
+C:\Users\cktra\OneDrive\Documents\GitHub\Car-Rental\CarRental\Core.Common.ServiceModel\obj\Debug\Core.Common.ServiceModel.dll
+C:\Users\cktra\OneDrive\Documents\GitHub\Car-Rental\CarRental\Core.Common.ServiceModel\obj\Debug\Core.Common.ServiceModel.pdb

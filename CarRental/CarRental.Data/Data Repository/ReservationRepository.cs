@@ -14,6 +14,25 @@ namespace CarRental.Data.Data_Repository
 
     public class ReservationRepository : DataRepositoryBase<Reservation>, IReservationRepository
     {
+        public IEnumerable<CustomerReservationInfo> GetCustomerOpenReservationInfo(int accountID)
+        {
+            using (CarRentalContext entityContext = new CarRentalContext())
+            {
+                var query = from r in entityContext.ReservationSet
+                            join a in entityContext.AccountSet on r.AccountID equals a.AccountID
+                            join c in entityContext.CarSet on r.CarID equals c.CarID
+                            where r.AccountID == accountID
+                            select new CustomerReservationInfo()
+                            {
+                                Customer = a,
+                                Car = c,
+                                Reservation = r
+                            };
+
+                return query.ToList().ToArray();
+            }
+        }
+
         public IEnumerable<CustomerReservationInfo> GetCustomerReservationInfo()
         {
             using (CarRentalContext entityContext = new CarRentalContext())

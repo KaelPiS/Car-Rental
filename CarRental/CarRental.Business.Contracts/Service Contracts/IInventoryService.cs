@@ -24,7 +24,7 @@ namespace CarRental.Business.Contracts
 
 
         // Because this operation relative to I/O so it needs to have transaction, it will allow to add other things in data access
-        // layer with touching the service
+        // layer without touching the service
 
         // This transaction option allows the trasaction to flow into operation if it start because the service call was initiated
         [OperationContract]
