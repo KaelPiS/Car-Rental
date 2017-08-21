@@ -1,5 +1,4 @@
-﻿using System;
-using Microsoft.VisualStudio.TestTools.UnitTesting;
+﻿using Microsoft.VisualStudio.TestTools.UnitTesting;
 using CarRental.Business.Entities;
 using Moq;
 using CarRental.Data.Contract.Repository_Interfaces;

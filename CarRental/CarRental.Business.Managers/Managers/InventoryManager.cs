@@ -1,13 +1,10 @@
 ﻿using CarRental.Business.Contracts;
 using Core.Common.Contract;
-using Core.Common.Cores;
 using System;
 using System.Collections.Generic;
 using System.ComponentModel.Composition;
 using System.Linq;
 using System.ServiceModel;
-using System.Text;
-using System.Threading.Tasks;
 using CarRental.Business.Entities;
 using CarRental.Data.Contract.Repository_Interfaces;
 using Core.Common.Exceptions;
@@ -25,8 +22,8 @@ namespace CarRental.Business.Managers.Managers
 
     // Because every call will be handled in different instance of service, we can set the Concurrency into Multiple without 
     // worry about multi-threading problems
-    
-    
+
+
     [ServiceBehavior(InstanceContextMode = InstanceContextMode.PerCall, 
         ConcurrencyMode =ConcurrencyMode.Multiple,
         ReleaseServiceInstanceOnTransactionComplete = false)]

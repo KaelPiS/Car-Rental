@@ -44,7 +44,7 @@
     <Compile Include="Exceptions\CarCurrentlyRentedException.cs" />
     <Compile Include="Exceptions\CarNotRentedException.cs" />
     <Compile Include="Exceptions\UnableToRentForDateException.cs" />
-    <Compile Include="Security.cs" />
+    <Compile Include="Security\Security.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
   </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />

@@ -1,10 +1,4 @@
-﻿using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
-
-namespace Core.Common.Contract
+﻿namespace Core.Common.Contract
 {
     // Using Abstract Factory Design Pattern
     public interface IDataRepositoryFactory

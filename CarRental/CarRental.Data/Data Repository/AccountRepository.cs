@@ -1,10 +1,8 @@
 ﻿using CarRental.Business.Entities;
 using CarRental.Data.Contract.Repository_Interfaces;
-using System;
 using System.Collections.Generic;
 using System.ComponentModel.Composition;
 using System.Linq;
-using System.Text;
 
 namespace CarRental.Data.Data_Repository
 {
