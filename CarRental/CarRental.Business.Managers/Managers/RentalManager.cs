@@ -1,5 +1,4 @@
-﻿using CarRental.Business.Contracts.Service_Contracts;
-using System;
+﻿using System;
 using System.Collections.Generic;
 using System.Linq;
 using CarRental.Business.Entities;
@@ -14,6 +13,7 @@ using CarRental.Business.Common;
 using CarRental.Common.Exceptions;
 using CarRental.Business.Contracts.Data_Contracts;
 using CarRental.Data.Contract.DTOs;
+using CarRental.Business.Contracts;
 
 namespace CarRental.Business.Managers.Managers
 {

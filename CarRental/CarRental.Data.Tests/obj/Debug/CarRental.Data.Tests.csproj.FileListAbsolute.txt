@@ -46,3 +46,9 @@ C:\Users\cktra\OneDrive\Documents\GitHub\Car-Rental\CarRental\CarRental.Data.Tes
 C:\Users\cktra\OneDrive\Documents\GitHub\Car-Rental\CarRental\CarRental.Data.Tests\bin\Debug\CarRental.Business.Common.pdb
 C:\Users\cktra\OneDrive\Documents\GitHub\Car-Rental\CarRental\CarRental.Data.Tests\bin\Debug\CarRental.Common.dll
 C:\Users\cktra\OneDrive\Documents\GitHub\Car-Rental\CarRental\CarRental.Data.Tests\bin\Debug\CarRental.Common.pdb
+C:\Users\cktra\OneDrive\Documents\GitHub\Car-Rental\CarRental\CarRental.Data.Tests\bin\Debug\CarRental.Business.Managers.dll
+C:\Users\cktra\OneDrive\Documents\GitHub\Car-Rental\CarRental\CarRental.Data.Tests\bin\Debug\CarRental.Business.Contracts.dll
+C:\Users\cktra\OneDrive\Documents\GitHub\Car-Rental\CarRental\CarRental.Data.Tests\bin\Debug\Core.Common.ServiceModel.dll
+C:\Users\cktra\OneDrive\Documents\GitHub\Car-Rental\CarRental\CarRental.Data.Tests\bin\Debug\CarRental.Business.Managers.pdb
+C:\Users\cktra\OneDrive\Documents\GitHub\Car-Rental\CarRental\CarRental.Data.Tests\bin\Debug\CarRental.Business.Contracts.pdb
+C:\Users\cktra\OneDrive\Documents\GitHub\Car-Rental\CarRental\CarRental.Data.Tests\bin\Debug\Core.Common.ServiceModel.pdb
