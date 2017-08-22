@@ -6,7 +6,7 @@ using System;
 using System.Collections.Generic;
 using System.ServiceModel;
 
-namespace CarRental.Business.Contracts.Service_Contracts
+namespace CarRental.Business.Contracts
 {
     [ServiceContract]
     public interface IRentalService

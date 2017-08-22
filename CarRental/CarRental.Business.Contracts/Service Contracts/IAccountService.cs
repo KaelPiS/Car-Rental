@@ -3,7 +3,7 @@ using CarRental.Common.Exceptions;
 using Core.Common.Exceptions;
 using System.ServiceModel;
 
-namespace CarRental.Business.Contracts.Service_Contracts
+namespace CarRental.Business.Contracts
 {
     [ServiceContract]
     public interface IAccountService
